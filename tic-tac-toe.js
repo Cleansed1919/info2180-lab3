@@ -16,8 +16,62 @@ document.addEventListener("DOMContentLoaded", function() {
     const square8 = elements[10];
     const square9 = elements[11];
 
-    console.log("Squares set! Game is ready... ");
     var turn = 0;
+    square1.onmouseover = function() { //when hovering over square1
+        square1.classList.add("hover");
+    }
+    square1.onmouseout = function() {
+        square1.classList.remove("hover");
+    }
+    square2.onmouseover = function() { //when hovering over square2
+        square2.classList.add("hover");
+    }
+    square2.onmouseout = function() {
+        square2.classList.remove("hover");
+    }
+    square3.onmouseover = function() { //when hovering over square3
+        square3.classList.add("hover");
+    }
+    square3.onmouseout = function() {
+        square3.classList.remove("hover");
+    }
+    square4.onmouseover = function() { //when hovering over square4
+        square4.classList.add("hover");
+    }
+    square4.onmouseout = function() {
+        square4.classList.remove("hover");
+    }
+    square5.onmouseover = function() { //when hovering over square5
+        square5.classList.add("hover");
+    }
+    square5.onmouseout = function() {
+        square5.classList.remove("hover");
+    }
+    square6.onmouseover = function() { //when hovering over square6
+        square6.classList.add("hover");
+    }
+    square6.onmouseout = function() {
+        square6.classList.remove("hover");
+    }
+    square7.onmouseover = function() { //when hovering over square7
+        square7.classList.add("hover");
+    }
+    square7.onmouseout = function() {
+        square7.classList.remove("hover");
+    }
+    square8.onmouseover = function() { //when hovering over square8
+        square8.classList.add("hover");
+    }
+    square8.onmouseout = function() {
+        square8.classList.remove("hover");
+    }
+    square9.onmouseover = function() { //when hovering over square9
+        square9.classList.add("hover");
+    }
+    square9.onmouseout = function() {
+        square9.classList.remove("hover");
+    }
+
     square1.onclick = function() { //when clicking square1
         if  (turn == 0) {
             square1.classList.add("O");
@@ -162,4 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
             turn--;
         }    
     }
+
+
+    console.log("Squares set! Game ready... ");
 })
