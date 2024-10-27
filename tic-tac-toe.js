@@ -1,5 +1,4 @@
 let turn = 0;
-let OX = "O";
 let state = ["","","","","","","","",""];
 let stateIndex = 0;
 
@@ -50,8 +49,6 @@ setGame = function() {
         cell.classList.add("square");
         cell.setAttribute("id", `${stateIndex}`); 
         cell.onclick = function() {
-            OX = (turn === 0) ? "O":"X";
-            turn = (turn === 0) ? 1:0;
 
             if (cell.classList.contains("O")) {
                 alert("An O was already placed here.")
@@ -60,12 +57,13 @@ setGame = function() {
                 alert("An X was already placed here.")
             }
             else {
-                if  (OX === "O") {
+                if  (turn === 0) {
                     cell.classList.add("O");
                     cell.innerHTML = "O";
                     position = Number(cell.getAttribute("id"));
                     state[`${position}`] = "O";
                     console.log("O in position: ", position);
+                    turn++;
     
                 }
                 else {
@@ -74,6 +72,7 @@ setGame = function() {
                     position = Number(cell.getAttribute("id"));
                     state[`${position}`] = "X";
                     console.log("X in position: ", position);
+                    turn--;
                 }
             }
             if (isWinner() != false) {
