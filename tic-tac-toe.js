@@ -4,27 +4,6 @@ let state = ["","","","","","","","",""];
 let stateIndex = 0;
 let isWinner = "";
 
-newGame = function () {
-    let cells = document.getElementById("board");
-    let status = document.getElementById("status");
-    let state = ["","","","","","","","",""];
-    isWinner = false;
-    for (let cell of cells.children) {
-        if (cell.classList.contains("O")) {
-            cell.classList.remove("O");
-        }
-        if (cell.classList.contains("X")) {
-            cell.classList.remove("X");
-        }   
-        cell.innerHTML = "";
-        status.textContent = "Move your mouse over a square and click to play an X or an O";
-        status.classList.remove("you-won");
-    }
-    
-    
-    
-}
-
 winner = function() {
     if (state[0] === state[1] && state[1] === state[2] && state[2] !== "") 
         {return state[0];}
@@ -87,6 +66,7 @@ setGame = function() {
                 status.classList.add("you-won");
                 console.log("A winner has been decided.");
                 console.log("Game end.");
+                console.log(state);
             }
         }
         stateIndex++;
@@ -104,7 +84,22 @@ document.addEventListener("DOMContentLoaded", function() {
     setGame();
     let resetBoard = document.getElementsByClassName("btn");
     resetBoard[0].onclick = function () {
-        newGame();
+        state = ["","","","","","","","",""];
+            let cells = document.getElementById("board");
+            let status = document.getElementById("status");
+            isWinner = false;
+            for (let cell of cells.children) {
+                if (cell.classList.contains("O")) {
+                cell.classList.remove("O");
+                }
+            if (cell.classList.contains("X")) {
+                cell.classList.remove("X");
+                }   
+            cell.innerHTML = "";
+            status.textContent = "Move your mouse over a square and click to play an X or an O";
+            status.classList.remove("you-won");
+            }
+        };
     } 
     
-})
+)
