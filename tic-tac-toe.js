@@ -2,6 +2,28 @@ let turn = 0;
 let OX = "O";
 let state = ["","","","","","","","",""];
 let stateIndex = 0;
+let isWinner = "";
+
+newGame = function () {
+    let cells = document.getElementById("board");
+    let status = document.getElementById("status");
+    let state = ["","","","","","","","",""];
+    isWinner = false;
+    for (let cell of cells.children) {
+        if (cell.classList.contains("O")) {
+            cell.classList.remove("O");
+        }
+        if (cell.classList.contains("X")) {
+            cell.classList.remove("X");
+        }   
+        cell.innerHTML = "";
+        status.textContent = "Move your mouse over a square and click to play an X or an O";
+        status.classList.remove("you-won");
+    }
+    
+    
+    
+}
 
 winner = function() {
     if (state[0] === state[1] && state[1] === state[2] && state[2] !== "") 
@@ -27,8 +49,9 @@ winner = function() {
 }
 
 setGame = function() {
-    const cells = document.getElementById("board");
-    const status = document.getElementById("status");
+    let cells = document.getElementById("board");
+    let status = document.getElementById("status");
+    console.log("Board ready");
     for (let cell of cells.children) {
         cell.classList.add("square");
         cell.setAttribute("id", `${stateIndex}`); 
@@ -59,9 +82,11 @@ setGame = function() {
                 console.log("A cell was clicked!");
             }
             isWinner = winner();
-            if (isWinner) {
+            if (isWinner != false) {
                 status.textContent = `Congratulations! ${isWinner} is the Winner!`;
                 status.classList.add("you-won");
+                console.log("A winner has been decided.");
+                console.log("Game end.");
             }
         }
         stateIndex++;
@@ -69,7 +94,7 @@ setGame = function() {
             cell.classList.add("hover");
         }
         cell.onmouseout = function() {
-            cell.classList.remove("hover");
+        cell.classList.remove("hover");
         }
     }
 }
@@ -77,5 +102,9 @@ setGame = function() {
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Setting board... ");
     setGame();
+    let resetBoard = document.getElementsByClassName("btn");
+    resetBoard[0].onclick = function () {
+        newGame();
+    } 
     
 })
