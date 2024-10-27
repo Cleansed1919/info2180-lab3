@@ -2,7 +2,6 @@ let turn = 0;
 let OX = "O";
 let state = ["","","","","","","","",""];
 let stateIndex = 0;
-let isWinner = "";
 
 isWinner = function() {
     if (state[0] === state[1] && state[1] === state[2] && state[2] !== "") {
